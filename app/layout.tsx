@@ -1,11 +1,27 @@
 import type React from "react"
-import "@/app/globals.css"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Analytics } from "@/components/analytics"
-import { Suspense } from "react"
+import type { Metadata } from "next"
+import { Playfair_Display, Source_Sans_3 } from "next/font/google"
+import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+  weight: ["400", "600", "700"],
+})
+
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-source-sans",
+  weight: ["400", "500", "600"],
+})
+
+export const metadata: Metadata = {
+  title: "Gourav Kumar Ojha - Software Developer Portfolio",
+  description: "Aspiring Software Developer specializing in AI-ML, Blockchain, and Full-Stack Development",
+  generator: "Gourav",
+}
 
 export default function RootLayout({
   children,
@@ -13,22 +29,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-      </head>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Suspense>
-            {children}
-            <Analytics />
-          </Suspense>
-        </ThemeProvider>
-      </body>
+    <html lang="en" className={`${playfair.variable} ${sourceSans.variable} antialiased`}>
+      <body className="font-sans">{children}</body>
     </html>
   )
 }
-
-export const metadata = {
-      generator: 'v0.dev'
-    };
