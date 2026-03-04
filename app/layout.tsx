@@ -18,8 +18,8 @@ const sourceSans = Source_Sans_3({
 })
 
 export const metadata: Metadata = {
-  title: "Gourav Kumar Ojha - Software Developer Portfolio",
-  description: "Aspiring Software Developer specializing in AI-ML, Blockchain, and Full-Stack Development",
+  title: "Gourav Kumar Ojha - Machine Learning Engineer | Applied AI Engineer",
+  description: "Machine Learning Engineer skilled in building AI-driven, production-grade systems integrating ML, cloud, and automation. Proficient in GCP, FastAPI, LangChain, and RAG architectures.",
   generator: "Gourav",
 }
 
