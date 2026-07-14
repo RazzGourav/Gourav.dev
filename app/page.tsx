@@ -824,7 +824,7 @@ export default function Portfolio() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <Avatar className="w-24 h-24 mx-auto mb-8 ring-2 ring-violet-500/30 ring-offset-4 ring-offset-background hover:ring-violet-400/60 transition-all duration-500 hover:scale-105 shadow-2xl shadow-violet-500/10">
-              <AvatarImage src="/software-developer-headshot.jpeg" alt="Gourav Kumar Ojha" className="object-cover" />
+              <AvatarImage src="/software-developer-headshot.jpeg?v=1.1" alt="Gourav Kumar Ojha" className="object-cover" />
               <AvatarFallback className="text-2xl font-bold bg-gradient-to-br from-violet-600 to-cyan-500 text-white">
                 GKO
               </AvatarFallback>
@@ -895,7 +895,7 @@ export default function Portfolio() {
               asChild
               className="btn-magnetic border-violet-500/30 text-violet-400 hover:bg-violet-500/10 hover:border-violet-500/50 bg-transparent px-8"
             >
-              <a href="/resume.pdf" download>
+              <a href="/resume.pdf?v=1.1" download>
                 <Download className="mr-2 w-4 h-4" />
                 Download Resume
               </a>
