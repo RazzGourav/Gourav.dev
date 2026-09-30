@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 /* ═══════════════════════════════════════════════════════
-   GOURAV.DEV — Premium Dark-First Portfolio Theme
+   GOURAV.DEV — Premium 3D Portfolio Theme
    ═══════════════════════════════════════════════════════ */
 
 @theme inline {
@@ -220,6 +220,236 @@
 
 .glow-card:hover::before {
   opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════
+   3D TILT CARD
+   ═══════════════════════════════════════════════════════ */
+
+.tilt-card {
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    rgba(139, 92, 246, 0.06),
+    transparent 40%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tilt-card:hover::after {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HOLOGRAPHIC CARD EFFECT
+   ═══════════════════════════════════════════════════════ */
+
+.holographic-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(139, 92, 246, 0.04) 40%,
+    rgba(6, 182, 212, 0.04) 50%,
+    rgba(192, 132, 252, 0.04) 60%,
+    transparent 70%
+  );
+  transform: rotate(0deg);
+  animation: holographicSweep 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes holographicSweep {
+  0% { transform: rotate(0deg) translateX(-30%); }
+  50% { transform: rotate(5deg) translateX(30%); }
+  100% { transform: rotate(0deg) translateX(-30%); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   3D AVATAR RINGS
+   ═══════════════════════════════════════════════════════ */
+
+.avatar-ring-3d {
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(6, 182, 212, 0.3)) border-box;
+  mask: linear-gradient(#000, #000) padding-box, linear-gradient(#000, #000);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  animation: avatarRingSpin 8s linear infinite;
+}
+
+.avatar-ring-3d-secondary {
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2)) border-box;
+  mask: linear-gradient(#000, #000) padding-box, linear-gradient(#000, #000);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  animation: avatarRingSpin 12s linear infinite reverse;
+}
+
+@keyframes avatarRingSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO TITLE 3D DEPTH
+   ═══════════════════════════════════════════════════════ */
+
+.hero-title-3d {
+  text-shadow:
+    0 0 40px rgba(139, 92, 246, 0.15),
+    0 0 80px rgba(139, 92, 246, 0.08);
+  transform: perspective(800px) rotateX(0deg);
+  transition: transform 0.5s ease;
+}
+
+.hero-title-3d:hover {
+  transform: perspective(800px) rotateX(2deg) scale(1.01);
+}
+
+/* ═══════════════════════════════════════════════════════
+   STAT PILL 3D
+   ═══════════════════════════════════════════════════════ */
+
+.stat-pill-3d {
+  transform: perspective(500px) rotateX(0deg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-pill-3d:hover {
+  transform: perspective(500px) rotateX(-5deg) translateY(-3px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SOCIAL ICON 3D HOVER
+   ═══════════════════════════════════════════════════════ */
+
+.social-icon-3d {
+  transform: perspective(400px) rotateY(0deg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icon-3d:hover {
+  transform: perspective(400px) rotateY(-10deg) translateY(-4px);
+}
+
+/* ═══════════════════════════════════════════════════════
+   3D PERSPECTIVE CONTAINER
+   ═══════════════════════════════════════════════════════ */
+
+.perspective-container {
+  perspective: 1200px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   TIMELINE GLOW LINE
+   ═══════════════════════════════════════════════════════ */
+
+.timeline-glow-line {
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2), 0 0 30px rgba(139, 92, 246, 0.05);
+  animation: timelineGlow 3s ease-in-out infinite;
+}
+
+@keyframes timelineGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(139, 92, 246, 0.1), 0 0 20px rgba(139, 92, 246, 0.03); }
+  50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.08); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   3D CUBE LOADER
+   ═══════════════════════════════════════════════════════ */
+
+.cube-loader {
+  width: 60px;
+  height: 60px;
+  transform-style: preserve-3d;
+  animation: cubeRotate 2.5s ease-in-out infinite;
+  position: relative;
+}
+
+.cube-face {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  background: rgba(139, 92, 246, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.cube-front  { transform: translateZ(30px); }
+.cube-back   { transform: rotateY(180deg) translateZ(30px); }
+.cube-right  { transform: rotateY(90deg) translateZ(30px); }
+.cube-left   { transform: rotateY(-90deg) translateZ(30px); }
+.cube-top    { transform: rotateX(90deg) translateZ(30px); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(30px); }
+
+@keyframes cubeRotate {
+  0%   { transform: rotateX(0deg) rotateY(0deg); }
+  25%  { transform: rotateX(90deg) rotateY(90deg); }
+  50%  { transform: rotateX(180deg) rotateY(180deg); }
+  75%  { transform: rotateX(270deg) rotateY(270deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   LOADING BAR ANIMATION
+   ═══════════════════════════════════════════════════════ */
+
+.animate-loading-bar {
+  animation: loadingBar 2s ease-in-out forwards;
+}
+
+@keyframes loadingBar {
+  0% { width: 0; }
+  20% { width: 30%; }
+  50% { width: 60%; }
+  80% { width: 85%; }
+  100% { width: 100%; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER WAVE
+   ═══════════════════════════════════════════════════════ */
+
+.footer-wave-line {
+  height: 1px;
+  width: 200%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 92, 246, 0.3) 25%,
+    rgba(6, 182, 212, 0.3) 50%,
+    transparent 75%
+  );
+  animation: footerWave 8s linear infinite;
+}
+
+@keyframes footerWave {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* ═══════════════════════════════════════════════════════
